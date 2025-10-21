@@ -9,20 +9,20 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-[#F54927]">
+              <h1 className="text-xl sm:text-2xl font-bold text-[#F54927]">
                 AI Study Companion
               </h1>
             </div>
-            <div className="flex space-x-4">
+            <div className="flex space-x-2 sm:space-x-4">
               <Link
                 href="/login"
-                className="px-4 py-2 text-gray-600 hover:text-[#F54927] transition-colors"
+                className="px-2 sm:px-4 py-2 text-sm sm:text-base text-gray-600 hover:text-[#F54927] transition-colors"
               >
                 Login
               </Link>
               <Link
                 href="/signup"
-                className="px-4 py-2 bg-[#F54927] text-white rounded-lg hover:bg-[#e03d1f] transition-colors"
+                className="px-3 sm:px-4 py-2 bg-[#F54927] text-white rounded-lg hover:bg-[#e03d1f] transition-colors text-sm sm:text-base"
               >
                 Sign Up
               </Link>
@@ -32,26 +32,26 @@ const HomePage = () => {
       </nav>
 
       {/* Hero Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         <div className="text-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
             Learn Faster with AI-Powered Study Tools
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
             Transform your study materials into concise summaries, generate
             quizzes, and chat with an AI tutor to accelerate your learning
             journey.
           </p>
-          <div className="flex justify-center space-x-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4">
             <Link
               href="/signup"
-              className="px-8 py-3 bg-[#F54927] text-white rounded-lg text-lg font-semibold hover:bg-[#e03d1f] transition-colors"
+              className="px-6 sm:px-8 py-3 bg-[#F54927] text-white rounded-lg text-base sm:text-lg font-semibold hover:bg-[#e03d1f] transition-colors"
             >
               Get Started Free
             </Link>
             <Link
               href="/demo"
-              className="px-8 py-3 border border-[#F54927] text-[#F54927] rounded-lg text-lg font-semibold hover:bg-orange-50 transition-colors"
+              className="px-6 sm:px-8 py-3 border border-[#F54927] text-[#F54927] rounded-lg text-base sm:text-lg font-semibold hover:bg-orange-50 transition-colors"
             >
               Try Demo
             </Link>
@@ -60,20 +60,20 @@ const HomePage = () => {
       </div>
 
       {/* Features Section */}
-      <div className="bg-white py-20">
+      <div className="bg-white py-12 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               Powerful Study Features
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-base sm:text-lg text-gray-600">
               Everything you need to study smarter, not harder
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* AI Summarizer */}
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 card-hover">
+            <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-100 card-hover">
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
                 <svg
                   className="w-6 h-6 text-[#F54927]"
@@ -104,7 +104,7 @@ const HomePage = () => {
             </div>
 
             {/* Quiz Generator */}
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 card-hover">
+            <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-100 card-hover">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
                 <svg
                   className="w-6 h-6 text-green-600"
@@ -135,7 +135,7 @@ const HomePage = () => {
             </div>
 
             {/* AI Chat Tutor */}
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100 card-hover">
+            <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-100 card-hover">
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
                 <svg
                   className="w-6 h-6 text-purple-600"
@@ -169,17 +169,17 @@ const HomePage = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-[#F54927] py-16">
+      <div className="bg-[#F54927] py-12 sm:py-16">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
             Ready to Transform Your Learning?
           </h2>
-          <p className="text-xl text-orange-100 mb-8">
+          <p className="text-lg sm:text-xl text-orange-100 mb-6 sm:mb-8">
             Join thousands of students who are already studying smarter with AI
           </p>
           <Link
             href="/signup"
-            className="inline-block px-8 py-3 bg-white text-[#F54927] rounded-lg text-lg font-semibold hover:bg-gray-50 transition-colors"
+            className="inline-block px-6 sm:px-8 py-3 bg-white text-[#F54927] rounded-lg text-base sm:text-lg font-semibold hover:bg-gray-50 transition-colors"
           >
             Start Your Free Trial
           </Link>
@@ -187,14 +187,16 @@ const HomePage = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-8 sm:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h3 className="text-2xl font-bold mb-4">AI Study Companion</h3>
-            <p className="text-gray-400 mb-6">
+            <h3 className="text-xl sm:text-2xl font-bold mb-4">
+              AI Study Companion
+            </h3>
+            <p className="text-gray-400 mb-4 sm:mb-6 text-sm sm:text-base">
               Empowering students with AI-powered learning tools
             </p>
-            <div className="flex justify-center space-x-6 text-sm text-gray-400">
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-6 text-sm text-gray-400">
               <a href="#" className="hover:text-white transition-colors">
                 Privacy Policy
               </a>
