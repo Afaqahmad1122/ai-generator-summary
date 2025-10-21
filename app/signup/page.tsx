@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -14,6 +14,86 @@ const SignupPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
+
+  // Google OAuth configuration
+  const GOOGLE_CLIENT_ID =
+    process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "your-google-client-id";
+
+  useEffect(() => {
+    // Load Google Identity Services script
+    const script = document.createElement("script");
+    script.src = "https://accounts.google.com/gsi/client";
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+
+    // Make handleGoogleLogin available globally
+    (window as any).handleGoogleLogin = handleGoogleLogin;
+
+    script.onload = () => {
+      if (typeof window !== "undefined" && (window as any).google) {
+        (window as any).google.accounts.id.initialize({
+          client_id: GOOGLE_CLIENT_ID,
+          callback: (window as any).handleGoogleLogin,
+        });
+      }
+    };
+
+    return () => {
+      // Cleanup script if component unmounts
+      const existingScript = document.querySelector(
+        'script[src="https://accounts.google.com/gsi/client"]'
+      );
+      if (existingScript) {
+        existingScript.remove();
+      }
+      // Cleanup global function
+      delete (window as any).handleGoogleLogin;
+    };
+  }, []);
+
+  const handleGoogleLogin = async (response: any) => {
+    console.log("Google login response:", response);
+    setIsLoading(true);
+    setError("");
+
+    try {
+      // Send the credential to backend
+      const backendResponse = await fetch(
+        "http://localhost:4000/api/auth/google",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            idToken: response.credential,
+          }),
+        }
+      );
+
+      const data = await backendResponse.json();
+      console.log("Backend response:", data);
+
+      if (data.success) {
+        // Store token in localStorage
+        localStorage.setItem("token", data.data.token);
+        localStorage.setItem("user", JSON.stringify(data.data.user));
+
+        console.log("Login successful, redirecting to dashboard");
+        // Redirect to dashboard
+        router.push("/dashboard");
+      } else {
+        console.error("Login failed:", data.message);
+        setError(data.message || "Google login failed");
+      }
+    } catch (err) {
+      console.error("Network error:", err);
+      setError("Network error. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -218,6 +298,40 @@ const SignupPage = () => {
             >
               {isLoading ? "Creating account..." : "Create account"}
             </button>
+
+            {/* Divider */}
+            <div className="mt-6">
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-gray-300" />
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="px-2 bg-white text-gray-500">
+                    Or continue with
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Google Login Button */}
+            <div className="mt-6">
+              <div
+                id="g_id_onload"
+                data-client_id={GOOGLE_CLIENT_ID}
+                data-callback="handleGoogleLogin"
+                data-auto_prompt="false"
+              ></div>
+              <div
+                className="g_id_signin w-full"
+                data-type="standard"
+                data-shape="rectangular"
+                data-theme="outline"
+                data-text="signup_with"
+                data-size="large"
+                data-logo_alignment="left"
+                data-width="100%"
+              ></div>
+            </div>
           </div>
         </form>
 
