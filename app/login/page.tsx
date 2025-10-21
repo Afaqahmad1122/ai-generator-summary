@@ -135,14 +135,17 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-orange-50 to-red-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen bg-li-to-br from-orange-50 to-red-50 flex items-center justify-center py-4 px-4 sm:py-12 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-6 sm:space-y-8">
         {/* Header */}
         <div className="text-center">
-          <Link href="/" className="text-3xl font-bold text-[#F54927]">
+          <Link
+            href="/"
+            className="text-2xl sm:text-3xl font-bold text-[#F54927]"
+          >
             AI Study Companion
           </Link>
-          <h2 className="mt-6 text-3xl font-bold text-gray-900">
+          <h2 className="mt-4 sm:mt-6 text-2xl sm:text-3xl font-bold text-gray-900">
             Sign in to your account
           </h2>
           <p className="mt-2 text-sm text-gray-600">
@@ -157,8 +160,8 @@ const LoginPage = () => {
         </div>
 
         {/* Form */}
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="bg-white p-8 rounded-xl shadow-lg">
+        <form className="mt-6 sm:mt-8 space-y-6" onSubmit={handleSubmit}>
+          <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-xl shadow-lg">
             {error && (
               <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
                 {error}
@@ -181,7 +184,7 @@ const LoginPage = () => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                  className="mt-1 block w-full px-3 py-2 sm:py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base sm:text-sm"
                   placeholder="Enter your email"
                 />
               </div>
@@ -201,13 +204,13 @@ const LoginPage = () => {
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                  className="mt-1 block w-full px-3 py-2 sm:py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base sm:text-sm"
                   placeholder="Enter your password"
                 />
               </div>
             </div>
 
-            <div className="flex items-center justify-between mt-6">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-6 space-y-3 sm:space-y-0">
               <div className="flex items-center">
                 <input
                   id="remember-me"

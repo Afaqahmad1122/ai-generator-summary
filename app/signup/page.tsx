@@ -154,14 +154,17 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-orange-50 to-red-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen bg-linear-to-br from-orange-50 to-red-50 flex items-center justify-center py-4 px-4 sm:py-12 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-6 sm:space-y-8">
         {/* Header */}
         <div className="text-center">
-          <Link href="/" className="text-3xl font-bold text-[#F54927]">
+          <Link
+            href="/"
+            className="text-2xl sm:text-3xl font-bold text-[#F54927]"
+          >
             AI Study Companion
           </Link>
-          <h2 className="mt-6 text-3xl font-bold text-gray-900">
+          <h2 className="mt-4 sm:mt-6 text-2xl sm:text-3xl font-bold text-gray-900">
             Create your account
           </h2>
           <p className="mt-2 text-sm text-gray-600">
@@ -176,8 +179,8 @@ const SignupPage = () => {
         </div>
 
         {/* Form */}
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="bg-white p-8 rounded-xl shadow-lg">
+        <form className="mt-6 sm:mt-8 space-y-6" onSubmit={handleSubmit}>
+          <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-xl shadow-lg">
             {error && (
               <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
                 {error}
@@ -200,7 +203,7 @@ const SignupPage = () => {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                  className="mt-1 block w-full px-3 py-2 sm:py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base sm:text-sm"
                   placeholder="Enter your full name"
                 />
               </div>
@@ -220,7 +223,7 @@ const SignupPage = () => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                  className="mt-1 block w-full px-3 py-2 sm:py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base sm:text-sm"
                   placeholder="Enter your email"
                 />
               </div>
@@ -240,7 +243,7 @@ const SignupPage = () => {
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                  className="mt-1 block w-full px-3 py-2 sm:py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base sm:text-sm"
                   placeholder="Create a password"
                 />
               </div>
@@ -260,7 +263,7 @@ const SignupPage = () => {
                   required
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                  className="mt-1 block w-full px-3 py-2 sm:py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-base sm:text-sm"
                   placeholder="Confirm your password"
                 />
               </div>
@@ -336,8 +339,8 @@ const SignupPage = () => {
         </form>
 
         {/* Benefits */}
-        <div className="bg-white p-6 rounded-xl shadow-lg">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">
             What you get with your free account:
           </h3>
           <ul className="space-y-2 text-sm text-gray-600">
